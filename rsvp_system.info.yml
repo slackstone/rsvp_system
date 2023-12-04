@@ -1,0 +1,5 @@
+name: 'RSVP System'
+type: module
+description: 'Tools for building Reservation Systems'
+package: Custom
+core_version_requirement: ^10

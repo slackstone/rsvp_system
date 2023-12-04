@@ -1,0 +1,18 @@
+use Drupal\node\Entity\NodeType;
+
+/**
+ * Implements hook_install().
+ */
+function rsvp_system_install() {
+  // Check if the content type doesn't already exist before creating it.
+  if (!NodeType::load('rsvp_request')) {
+    $type = NodeType::create([
+      'type' => 'rsvp_request',
+      'label' => t('RSVP Request'),
+      // Additional settings...
+    ]);
+    $type->save();
+  }
+
+  // module code to go here soon
+}
