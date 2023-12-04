@@ -1,9 +1,10 @@
 # rsvp_system  
 A Drupal 10 Module template for creating RSVP Calendar & Reservation Systems.  
   
-This module will create two Content Types.  
+This module will create three Content Types.  
 rsvp_request RSVP Reservation Request  
 rsvp_location RSVP Reservable Location  
+rsvp_transaction RSVP Transaction Reciept 
   
 Required Modules  
 The "Content Access" is used to help secure RSVP Locations.  
