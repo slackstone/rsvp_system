@@ -11,4 +11,8 @@ The "Content Access" is used to help secure RSVP Locations.
 https://www.drupal.org/project/content_access  
   
 Suggested Libraries & Modules:  
-Full Calendar
+Full Calendar  
+
+Additional Documentation can be found here:
+RSVP System Guide  
+https://gluebox.com/design/rsvp_system_guide
