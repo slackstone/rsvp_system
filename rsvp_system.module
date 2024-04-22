@@ -4,6 +4,7 @@ use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Ajax\AjaxResponse;
 use Drupal\Core\Ajax\ReplaceCommand;
 use Drupal\views\Views;
+use Drupal\node\Entity\NodeType;
 
 /**
  * Implements hook_form_alter().
