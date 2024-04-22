@@ -27,6 +27,8 @@ Comprehensive documentation and a user guide are available [here](https://gluebo
 - **Configuration Management**: Implement features to support exporting and importing module configurations using Drupal's configuration management system.
 - **Accessibility**: Ensure that all front-end components, especially interactive elements like calendars, adhere to accessibility standards.
 
+### File Layout
+
 - rsvp_system/
   - src/
     - Form/
