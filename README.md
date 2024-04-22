@@ -1,5 +1,5 @@
 # rsvp_system  
-A Drupal 10 Module template for creating RSVP Calendar & Reservation Systems.  
+A Drupal Module template for creating RSVP Calendar & Reservation Systems.  
   
 This module will create three Content Types.  
 rsvp_request RSVP Reservation Request  
