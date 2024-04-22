@@ -16,3 +16,11 @@ Full Calendar
 Additional Documentation can be found here:
 RSVP System Guide  
 https://gluebox.com/design/rsvp_system_guide
+
+
+Project Notes:
+
+Use Drupal Best Practices and Coding Standards:
+Dependency Injection: Use dependency injection for services instead of static calls to ensure better testability and decoupling.
+Configuration Management: Provide features for exporting and importing module configurations using Drupal's configuration management system.
+Accessibility: Ensure that any front-end components, especially interactive elements like calendars, are fully accessible.
