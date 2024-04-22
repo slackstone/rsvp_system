@@ -1,5 +1,21 @@
 name: 'RSVP System'
-type: module
-description: 'Tools for building Reservation Systems'
-package: Custom
+description: 'A comprehensive Drupal module for managing calendars and reservation systems. It supports handling reservation requests, locations, and department categorizations with robust features for both backend and frontend interactions.'
 core_version_requirement: ^10
+package: Custom
+dependencies:
+  - drupal:node
+  - drupal:taxonomy
+  - drupal:content_access
+  - drupal:views
+
+# If you are using additional third-party libraries, specify them here. For example:
+# libraries:
+#   - rsvp_system/fullcalendar
+
+# 'configure' key is used to link to the module's configuration form.
+# configure: rsvp_system.admin_settings
+
+# other submodules:
+#   - rsvp_system_location
+#   - rsvp_system_department
+#   - rsvp_system_log
