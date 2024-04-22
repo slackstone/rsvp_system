@@ -1,36 +1,31 @@
-# rsvp_system  
-A Drupal Module template for creating RSVP Calendar & Reservation Systems.  
-  
-This module will create three Content Types.  
-rsvp_request RSVP Reservation Request  
-rsvp_location RSVP Reservable Location  
-rsvp_transaction RSVP Transaction Reciept 
-  
-Required Modules  
-The "Content Access" is used to help secure RSVP Locations.  
-https://www.drupal.org/project/content_access  
-  
-Suggested Libraries & Modules:  
-Full Calendar  
+# RSVP System
+A Drupal module for managing calendars and reservations.
 
-Additional Documentation can be found here:
-RSVP System Guide  
-https://gluebox.com/design/rsvp_system_guide
+This module creates three distinct entities:
+- **RSVP Department**: Categorized using taxonomy to leverage Drupal's efficient categorization and filtering capabilities.
+- **RSVP Location**: A content type for managing locations with detailed requirements and complex functionalities such as bookings and galleries.
+- **RSVP Transaction**: A content type for recording transaction receipts, enhancing record-keeping and financial oversight.
 
+## Required Modules
+- **Content Access**: Secures RSVP Locations. [Learn more](https://www.drupal.org/project/content_access).
 
-Project Notes:
+## Suggested Libraries & Modules
+- **Full Calendar**: Integrates interactive calendar features for managing bookings and reservations.
 
-Use Drupal Best Practices and Coding Standards:
-Dependency Injection: Use dependency injection for services instead of static calls to ensure better testability and decoupling.
-Configuration Management: Provide features for exporting and importing module configurations using Drupal's configuration management system.
-Accessibility: Ensure that any front-end components, especially interactive elements like calendars, are fully accessible.
+## Additional Documentation
+- **RSVP System Guide**: Comprehensive documentation available [here](https://gluebox.com/design/rsvp_system_guide).
 
+## Project Notes
 
-Sub-Modules:
+### Use Drupal Best Practices and Coding Standards:
+- **Dependency Injection**: Utilize dependency injection for services to improve testability and decoupling.
+- **Configuration Management**: Support for exporting and importing module configurations using Drupal's configuration management system.
+- **Accessibility**: Ensure all front-end components, especially interactive elements like calendars, are accessible.
 
-TODO:
+## Sub-Modules
 
-Installation instructions
-Configuration guide
-Links to dependencies
-Contribution guidelines
+## TODO:
+- Provide installation instructions.
+- Offer a configuration guide.
+- Include links to dependencies.
+- Develop contribution guidelines.
