@@ -8,3 +8,4 @@ dependencies:
   - drupal:taxonomy
   - drupal:content_access
   - drupal:views
+configure: rsvp_system.admin_settings
