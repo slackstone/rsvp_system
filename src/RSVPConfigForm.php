@@ -1,12 +1,8 @@
 <?php
-
 namespace Drupal\rsvp_system\Form;
-
 use Drupal\Core\Form\ConfigFormBase;
 use Drupal\Core\Form\FormStateInterface;
-
 class RSVPConfigForm extends ConfigFormBase {
-
   /**
    * {@inheritdoc}
    */
@@ -15,20 +11,17 @@ class RSVPConfigForm extends ConfigFormBase {
       'rsvp_system.settings',
     ];
   }
-
   /**
    * {@inheritdoc}
    */
   public function getFormId() {
     return 'rsvp_system_admin_settings';
   }
-
   /**
    * {@inheritdoc}
    */
   public function buildForm(array $form, FormStateInterface $form_state) {
     $config = $this->config('rsvp_system.settings');
-
     $form['setting_one'] = [
       '#type' => 'checkbox',
       '#title' => $this->t('Setting One'),
@@ -36,7 +29,6 @@ class RSVPConfigForm extends ConfigFormBase {
     ];
 
     // Add additional settings here...
-
     return parent::buildForm($form, $form_state);
   }
 
@@ -52,4 +44,3 @@ class RSVPConfigForm extends ConfigFormBase {
   }
 
 }
-
