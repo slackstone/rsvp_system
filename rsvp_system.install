@@ -1,0 +1,39 @@
+<?php
+
+/**
+ * Implements hook_install().
+ */
+function rsvp_system_install() {
+    // Perform actions needed when the module is installed.
+    // For example, setting default configurations, creating taxonomy vocabularies, etc.
+    // Checking if a taxonomy vocabulary already exists and create if not.
+    $vocabulary = \Drupal\taxonomy\Entity\Vocabulary::load('reservation_departments');
+    if (!$vocabulary) {
+        $vocabulary = \Drupal\taxonomy\Entity\Vocabulary::create([
+            'vid' => 'reservation_departments',
+            'description' => 'Taxonomy for categorizing reservation departments.',
+            'name' => 'Reservation Departments',
+        ]);
+        $vocabulary->save();
+    }
+}
+
+/**
+ * Implements hook_uninstall().
+ */
+function rsvp_system_uninstall() {
+    // Remove configurations and other changes made by the module.
+    // For example, deleting taxonomy vocabularies.
+    $vocabulary = \Drupal\taxonomy\Entity\Vocabulary::load('reservation_departments');
+    if ($vocabulary) {
+        $vocabulary->delete();
+    }
+}
+
+/**
+ * Implements hook_update_N().
+ */
+function rsvp_system_update_8001() {
+    // Perform database updates needed by the module.
+    // This is generally used for updating from one version to another.
+}

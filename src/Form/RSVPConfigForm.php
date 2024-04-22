@@ -1,3 +1,4 @@
+<?php
 namespace Drupal\rsvp_system\Form;
 
 use Drupal\Core\Form\ConfigFormBase;
@@ -49,3 +50,4 @@ class RSVPConfigForm extends ConfigFormBase {
             ->save();
     }
 }
+ ?>
