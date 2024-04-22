@@ -5,4 +5,3 @@ rsvp_system.admin_settings:
     _title: 'RSVP System Settings'
   requirements:
     _permission: 'administer site configuration'
-
