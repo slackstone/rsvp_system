@@ -21,20 +21,4 @@ function rsvp_system_form_alter(&$form, FormStateInterface $form_state, $form_id
 include_once 'includes/AjaxCallbacks.php';
 include_once 'includes/UtilityFunctions.php';
 include_once 'includes/ValidationHandlers.php';
-
-/**
- * Implements hook_install().
- */
-function rsvp_system_install() {
-    // Create a new content type for RSVP Requests if it doesn't already exist.
-    if (!NodeType::load('rsvp_request')) {
-        $type = NodeType::create([
-            'type' => 'rsvp_request',
-            'label' => t('RSVP Request'),
-            // todo Define other default settings for the content type
-        ]);
-        $type->save();
-    }
-
-    // todo Additional setup tasks here,  default configuration settings
-}
+include_once 'includes/FormAlterations.php';

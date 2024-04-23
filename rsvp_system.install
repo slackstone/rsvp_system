@@ -1,20 +1,37 @@
 <?php
+use Drupal\node\Entity\NodeType;  // Add this line to import the NodeType class
+use Drupal\taxonomy\Entity\Vocabulary;  // It's also a good practice to import the Vocabulary class
+use Drupal\Core\StringTranslation\TranslatableMarkup;
+
 
 /**
  * Implements hook_install().
  */
 function rsvp_system_install() {
-    // Perform actions needed when the module is installed.
-    // For example, setting default configurations, creating taxonomy vocabularies, etc.
-    // Checking if a taxonomy vocabulary already exists and create if not.
-    $vocabulary = \Drupal\taxonomy\Entity\Vocabulary::load('reservation_departments');
+    // Create a vocabulary for reservation departments if it does not exist.
+    $vocabulary = Vocabulary::load('rsvp_departments');
     if (!$vocabulary) {
-        $vocabulary = \Drupal\taxonomy\Entity\Vocabulary::create([
-            'vid' => 'reservation_departments',
-            'description' => 'Taxonomy for categorizing reservation departments.',
-            'name' => 'Reservation Departments',
+        $vocabulary = Vocabulary::create([
+            'vid' => 'rsvp_departments',  // Ensure machine name is consistent
+            'description' => new TranslatableMarkup('Taxonomy for categorizing reservation departments.'),
+            'name' => new TranslatableMarkup('RSVP Departments'),
         ]);
         $vocabulary->save();
+    }
+
+    // Create the RSVP Request content type if it does not exist.
+    if (!NodeType::load('rsvp_request')) {
+        $type = NodeType::create([
+            'type' => 'rsvp_request',  // Machine name of the content type
+            'name' => new TranslatableMarkup('RSVP Request'),  // Human-readable name, using translation
+            'description' => new TranslatableMarkup('Use this content type to submit RSVP requests.'),
+            'help' => new TranslatableMarkup('Enter the details of the RSVP request.'),
+            // Set default options
+            'status' => TRUE,  // Published by default
+            'preview_mode' => DRUPAL_OPTIONAL,  // Preview mode is optional
+            'display_submitted' => TRUE,  // Display author and date information
+        ]);
+        $type->save();
     }
 }
 
@@ -22,11 +39,16 @@ function rsvp_system_install() {
  * Implements hook_uninstall().
  */
 function rsvp_system_uninstall() {
-    // Remove configurations and other changes made by the module.
-    // For example, deleting taxonomy vocabularies.
-    $vocabulary = \Drupal\taxonomy\Entity\Vocabulary::load('reservation_departments');
+    // Delete the taxonomy vocabulary created during the installation.
+    $vocabulary = Vocabulary::load('rsvp_departments');
     if ($vocabulary) {
         $vocabulary->delete();
+    }
+
+    // Delete the content type created during the installation.
+    $content_type = NodeType::load('rsvp_request');
+    if ($content_type) {
+        $content_type->delete();
     }
 }
 
