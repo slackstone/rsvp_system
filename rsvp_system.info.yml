@@ -9,5 +9,4 @@ dependencies:
   - drupal:content_access
   - drupal:views
   - feeds:feeds
-  - feeds:feeds_csv
 configure: rsvp_system.admin_settings
