@@ -4,6 +4,7 @@ use Drupal\taxonomy\Entity\Vocabulary;  // It's also a good practice to import t
 use Drupal\Core\StringTranslation\TranslatableMarkup;
 
 
+
 /**
  * Implements hook_install().
  */
@@ -33,6 +34,22 @@ function rsvp_system_install() {
         ]);
         $type->save();
     }
+
+    // Create the RSVP Location content type if it does not exist.
+    if (!NodeType::load('rsvp_location')) {
+        $type = NodeType::create([
+            'type' => 'rsvp_location',  // Machine name of the content type
+            'name' => new TranslatableMarkup('RSVP Location'),  // Human-readable name, using translation
+            'description' => new TranslatableMarkup('Use this content type to store RSVP locations.'),
+            'help' => new TranslatableMarkup('Enter the details for the RSVP Location.'),
+            // Set default options
+            'status' => TRUE,  // Published by default
+            'preview_mode' => DRUPAL_OPTIONAL,  // Preview mode is optional
+            'display_submitted' => TRUE,  // Display author and date information
+        ]);
+        $type->save();
+    }
+
 }
 
 /**
@@ -50,6 +67,13 @@ function rsvp_system_uninstall() {
     if ($content_type) {
         $content_type->delete();
     }
+
+    // Delete the content type created during the installation.
+    $content_type = NodeType::load('rsvp_location');
+    if ($content_type) {
+        $content_type->delete();
+    }
+
 }
 
 /**
