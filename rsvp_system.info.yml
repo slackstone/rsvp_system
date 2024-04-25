@@ -6,6 +6,7 @@ package: Custom
 dependencies:
   - drupal:node
   - drupal:taxonomy
+  - drupal:pathauto
   - drupal:content_access
   - drupal:views
   - feeds:feeds
