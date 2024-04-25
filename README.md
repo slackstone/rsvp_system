@@ -42,16 +42,6 @@ Comprehensive documentation and a user guide are available [here](https://gluebo
   - rsvp_system.routing.yml
   - rsvp_system.install 
 
-## In this structure:
-
-src/ contains PHP classes following the PSR-4 autoloading standard.
-config/install/ contains configuration files that should be installed with the module.
-rsvp_system.info.yml is the file that declares basic metadata about the module.
-rsvp_system.module could contain hook implementations and other custom code.
-rsvp_system.routing.yml contains routes defined by the module.
-rsvp_system.install is the file where you can place your install, uninstall, and update hooks.
-
-
 
 ## Sub-Modules
 
