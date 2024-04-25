@@ -20,39 +20,6 @@ This module provides a comprehensive system for creating and managing reservatio
 ## Additional Documentation
 Comprehensive documentation and a user guide are available [here](https://gluebox.com/design/rsvp_system_guide).
 
-## Project Notes
-
-### Drupal Best Practices and Coding Standards:
-- **Dependency Injection**: Utilize dependency injection for service management to improve modularity and testability.
-- **Configuration Management**: Implement features to support exporting and importing module configurations using Drupal's configuration management system.
-- **Accessibility**: Ensure that all front-end components, especially interactive elements like calendars, adhere to accessibility standards.
-
-### File Layout
-
-- rsvp_system/
-  - src/
-    - Form/
-      - RSVPConfigForm.php
-  - config/
-    - install/
-      - rsvp_system.settings.yml
-      - rsvp_system.taxonomy.vocabulary.yml
-  - rsvp_system.info.yml
-  - rsvp_system.module
-  - rsvp_system.routing.yml
-  - rsvp_system.install 
-
-## In this structure:
-
-src/ contains PHP classes following the PSR-4 autoloading standard.
-config/install/ contains configuration files that should be installed with the module.
-rsvp_system.info.yml is the file that declares basic metadata about the module.
-rsvp_system.module could contain hook implementations and other custom code.
-rsvp_system.routing.yml contains routes defined by the module.
-rsvp_system.install is the file where you can place your install, uninstall, and update hooks.
-
-
-
 ## Sub-Modules
 
 ## TODO:
