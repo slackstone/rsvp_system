@@ -1,159 +1,47 @@
 <?php
-use Drupal\node\Entity\NodeType;  // Add this line to import the NodeType class
-use Drupal\taxonomy\Entity\Vocabulary;  // It's also a good practice to import the Vocabulary class
+use Drupal\taxonomy\Entity\Vocabulary;
 use Drupal\Core\StringTranslation\TranslatableMarkup;
-use Drupal\Core\Entity\Entity\EntityFormDisplay;
-use Drupal\Core\Entity\Entity\EntityViewDisplay;
-use Drupal\field\Entity\FieldStorageConfig;
-use Drupal\field\Entity\FieldConfig;
 
 /**
  * Implements hook_install().
  */
 function rsvp_system_install() {
-
     // Create a vocabulary for reservation departments if it does not exist.
+    // Note: If you are managing vocabularies through YML files as well,
+    // you can remove the following vocabulary creation code.
     $vocabulary = Vocabulary::load('rsvp_departments');
     if (!$vocabulary) {
         $vocabulary = Vocabulary::create([
-            'vid' => 'rsvp_departments',  // Ensure machine name is consistent
+            'vid' => 'rsvp_departments', // Ensure machine name is consistent
             'description' => new TranslatableMarkup('Taxonomy for categorizing reservation departments.'),
             'name' => new TranslatableMarkup('RSVP Departments'),
         ]);
         $vocabulary->save();
     }
-
-    // Create the RSVP Request content type if it does not exist.
-    if (!NodeType::load('rsvp_request')) {
-        $type = NodeType::create([
-            'type' => 'rsvp_request',  // Machine name of the content type
-            'name' => new TranslatableMarkup('RSVP Request'),  // Human-readable name, using translation
-            'description' => new TranslatableMarkup('Use this content type to submit RSVP requests.'),
-            'help' => new TranslatableMarkup('Enter the details of the RSVP request.'),
-            // Set default options
-            'status' => TRUE,  // Published by default
-            'preview_mode' => DRUPAL_OPTIONAL,  // Preview mode is optional
-            'display_submitted' => TRUE,  // Display author and date information
-        ]);
-        $type->save();
-    }
-
-    // Create the field storage only if it doesn't already exist.
-    if (!FieldStorageConfig::loadByName('node', 'field_department')) {
-        FieldStorageConfig::create([
-            'field_name' => 'field_department',
-            'entity_type' => 'node',
-            'type' => 'entity_reference',
-            'settings' => [
-                'target_type' => 'taxonomy_term',
-            ],
-        ])->save();
-    }
-
-    // Create the RSVP Location content type if it does not exist.
-    if (!NodeType::load('rsvp_location')) {
-        $type = NodeType::create([
-            'type' => 'rsvp_location',  // Machine name of the content type
-            'name' => new TranslatableMarkup('RSVP Location'),  // Human-readable name, using translation
-            'description' => new TranslatableMarkup('Use this content type to store RSVP locations.'),
-            'help' => new TranslatableMarkup('Enter the details for the RSVP Location.'),
-            // Set default options
-            'status' => TRUE,  // Published by default
-            'preview_mode' => DRUPAL_OPTIONAL,  // Preview mode is optional
-            'display_submitted' => TRUE,  // Display author and date information
-        ]);
-        $type->save();
-    }
-
-    // Create the field instance on the 'rsvp_location' content type.
-    if (!FieldConfig::loadByName('node', 'rsvp_location', 'field_department')) {
-        FieldConfig::create([
-            'field_name' => 'field_department',
-            'entity_type' => 'node',
-            'bundle' => 'rsvp_location',
-            'label' => 'RSVP Department',
-            'settings' => [
-                'target_type' => 'taxonomy_term',
-                'handler' => 'default:taxonomy_term',
-                'handler_settings' => [
-                    'target_bundles' => [
-                        'department' => 'rsvp_departments', // Assuming the taxonomy vocabulary machine name is 'department'
-                    ],
-                    'auto_create' => TRUE,
-                ],
-            ],
-        ])->save();
-    }
-   
-    // Change the Tilte for RSVP Location Content
-    $entity_type_manager = \Drupal::entityTypeManager();
-    $node_type = $entity_type_manager->getStorage('node_type')->load('rsvp_location');
-
-if ($node_type) {
-    \Drupal::logger('rsvp_system')->notice('The RSVP Location content type was loaded successfully.');
-    $node_type->set('title_label', 'Location Name');
-    $node_type->save();
-} else {
-    \Drupal::logger('rsvp_system')->error('Failed to load RSVP Location content type.');
 }
-
-//    if ($node_type) {
-//          $node_type->set('title_label', 'Location Name');
-//          $node_type->save();
-//     }
-
-
-    // Attach the field to the form display.
-    $form_display = EntityFormDisplay::load('node.rsvp_location.default');
-    if (!$form_display) {
-        $form_display = EntityFormDisplay::create([
-            'targetEntityType' => 'node',
-            'bundle' => 'rsvp_location',
-            'mode' => 'default',
-            'status' => TRUE,
-        ]);
-    }
-    $form_display->setComponent('field_department', [
-        'type' => 'entity_reference_autocomplete',
-    ])->save();
-
-    // Attach the field to the display settings.
-    $view_display = EntityViewDisplay::load('node.rsvp_location.default');
-    if (!$view_display) {
-        $view_display = EntityViewDisplay::create([
-            'targetEntityType' => 'node',
-            'bundle' => 'rsvp_location',
-            'mode' => 'default',
-            'status' => TRUE,
-        ]);
-    }
-    $view_display->setComponent('field_department', [
-        'type' => 'entity_reference_label',
-    ])->save();
-  }
 
 /**
  * Implements hook_uninstall().
  */
 function rsvp_system_uninstall() {
+    // Note: Since you are moving to config files, you would typically not delete
+    // the content types and vocabularies here as they should be removed via the 
+    // config uninstall process. This code is commented out for reference.
+    
     // Delete the taxonomy vocabulary created during the installation.
-    $vocabulary = Vocabulary::load('rsvp_departments');
-    if ($vocabulary) {
-        $vocabulary->delete();
-    }
+    // $vocabulary = Vocabulary::load('rsvp_departments');
+    // if ($vocabulary) {
+    //     $vocabulary->delete();
+    // }
 
-    // Delete the content type created during the installation.
-    $content_type = NodeType::load('rsvp_request');
-    if ($content_type) {
-        $content_type->delete();
-    }
-
-    // Delete the content type created during the installation.
-    $content_type = NodeType::load('rsvp_location');
-    if ($content_type) {
-        $content_type->delete();
-    }
-
+    // Delete the content types created during the installation.
+    // $types = ['rsvp_request', 'rsvp_location'];
+    // foreach ($types as $type) {
+    //     $content_type = NodeType::load($type);
+    //     if ($content_type) {
+    //         $content_type->delete();
+    //     }
+    // }
 }
 
 /**
@@ -162,4 +50,5 @@ function rsvp_system_uninstall() {
 function rsvp_system_update_8001() {
     // Perform database updates needed by the module.
     // This is generally used for updating from one version to another.
+    // This remains empty unless there's a specific update you need to manage.
 }
