@@ -1,6 +1,6 @@
 <?php
 
- * @file
+/** @file
  * Contains functionality for the RSVP System module.
  *
  * Copyright 2024 Stephen Groundwater
