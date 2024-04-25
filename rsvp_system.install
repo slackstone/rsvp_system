@@ -2,13 +2,16 @@
 use Drupal\node\Entity\NodeType;  // Add this line to import the NodeType class
 use Drupal\taxonomy\Entity\Vocabulary;  // It's also a good practice to import the Vocabulary class
 use Drupal\Core\StringTranslation\TranslatableMarkup;
-
-
+use Drupal\Core\Entity\Entity\EntityFormDisplay;
+use Drupal\Core\Entity\Entity\EntityViewDisplay;
+use Drupal\field\Entity\FieldStorageConfig;
+use Drupal\field\Entity\FieldConfig;
 
 /**
  * Implements hook_install().
  */
 function rsvp_system_install() {
+
     // Create a vocabulary for reservation departments if it does not exist.
     $vocabulary = Vocabulary::load('rsvp_departments');
     if (!$vocabulary) {
@@ -35,6 +38,18 @@ function rsvp_system_install() {
         $type->save();
     }
 
+    // Create the field storage only if it doesn't already exist.
+    if (!FieldStorageConfig::loadByName('node', 'field_department')) {
+        FieldStorageConfig::create([
+            'field_name' => 'field_department',
+            'entity_type' => 'node',
+            'type' => 'entity_reference',
+            'settings' => [
+                'target_type' => 'taxonomy_term',
+            ],
+        ])->save();
+    }
+
     // Create the RSVP Location content type if it does not exist.
     if (!NodeType::load('rsvp_location')) {
         $type = NodeType::create([
@@ -50,7 +65,72 @@ function rsvp_system_install() {
         $type->save();
     }
 
+    // Create the field instance on the 'rsvp_location' content type.
+    if (!FieldConfig::loadByName('node', 'rsvp_location', 'field_department')) {
+        FieldConfig::create([
+            'field_name' => 'field_department',
+            'entity_type' => 'node',
+            'bundle' => 'rsvp_location',
+            'label' => 'RSVP Department',
+            'settings' => [
+                'target_type' => 'taxonomy_term',
+                'handler' => 'default:taxonomy_term',
+                'handler_settings' => [
+                    'target_bundles' => [
+                        'department' => 'rsvp_departments', // Assuming the taxonomy vocabulary machine name is 'department'
+                    ],
+                    'auto_create' => TRUE,
+                ],
+            ],
+        ])->save();
+    }
+   
+    // Change the Tilte for RSVP Location Content
+    $entity_type_manager = \Drupal::entityTypeManager();
+    $node_type = $entity_type_manager->getStorage('node_type')->load('rsvp_location');
+
+if ($node_type) {
+    \Drupal::logger('rsvp_system')->notice('The RSVP Location content type was loaded successfully.');
+    $node_type->set('title_label', 'Location Name');
+    $node_type->save();
+} else {
+    \Drupal::logger('rsvp_system')->error('Failed to load RSVP Location content type.');
 }
+
+//    if ($node_type) {
+//          $node_type->set('title_label', 'Location Name');
+//          $node_type->save();
+//     }
+
+
+    // Attach the field to the form display.
+    $form_display = EntityFormDisplay::load('node.rsvp_location.default');
+    if (!$form_display) {
+        $form_display = EntityFormDisplay::create([
+            'targetEntityType' => 'node',
+            'bundle' => 'rsvp_location',
+            'mode' => 'default',
+            'status' => TRUE,
+        ]);
+    }
+    $form_display->setComponent('field_department', [
+        'type' => 'entity_reference_autocomplete',
+    ])->save();
+
+    // Attach the field to the display settings.
+    $view_display = EntityViewDisplay::load('node.rsvp_location.default');
+    if (!$view_display) {
+        $view_display = EntityViewDisplay::create([
+            'targetEntityType' => 'node',
+            'bundle' => 'rsvp_location',
+            'mode' => 'default',
+            'status' => TRUE,
+        ]);
+    }
+    $view_display->setComponent('field_department', [
+        'type' => 'entity_reference_label',
+    ])->save();
+  }
 
 /**
  * Implements hook_uninstall().
