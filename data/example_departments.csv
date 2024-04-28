@@ -1,11 +1,11 @@
-Department,Description,URL Short Name
-Rittenhouse Square,"Known for its high-end shops and residential areas, Rittenhouse Square is a bustling and prestigious neighborhood.",rittenhouse-square
-Fishtown,"A vibrant neighborhood known for its burgeoning arts scene, indie boutiques, and lively nightlife.",fishtown
-Manayunk,"Famous for its steep hills and Main Street filled with unique boutiques and eateries.",manayunk
-Northern Liberties,"Known for modern developments, nightlife, and a strong artistic community.",northern-liberties
-Old City,"Rich in history and home to Independence Hall, the Liberty Bell, and an active nightlife.",old-city
-University City,"Named for the University of Pennsylvania and Drexel University located there, it's a hub of student life and research.",university-city
-South Philly,"Famous for its diverse communities, Italian Market, and vibrant food scene including both traditional Italian and emerging Southeast Asian and Mexican cuisines.",south-philly
-West Philly,"Known for its leafy streets, Victorian houses, and diverse cultural scene influenced heavily by its proximity to multiple universities.",west-philly
-Germantown,"One of the oldest settlements in Philadelphia, known for its rich history and colonial architecture.",germantown
-Passyunk Square,"Famous for its avenue of eclectic food offerings, including some of the city's best-known cheesesteak joints.",passyunk-square
+Department,Short Name,Description,URL Short Name
+Rittenhouse Square,rittenhouse-square,"Known for its high-end shops and residential areas, Rittenhouse Square is a bustling and prestigious neighborhood.",rittenhouse-square
+Fishtown,fishtown,"A vibrant neighborhood known for its burgeoning arts scene, indie boutiques, and lively nightlife.",fishtown
+Manayunk,manayunk,Famous for its steep hills and Main Street filled with unique boutiques and eateries.,manayunk
+Northern Liberties,northern-liberties,"Known for modern developments, nightlife, and a strong artistic community.",northern-liberties
+Old City,old-city,"Rich in history and home to Independence Hall, the Liberty Bell, and an active nightlife.",old-city
+University City,university-city,"Named for the University of Pennsylvania and Drexel University located there, it's a hub of student life and research.",university-city
+South Philly,south-philly,"Famous for its diverse communities, Italian Market, and vibrant food scene including both traditional Italian and emerging Southeast Asian and Mexican cuisines.",south-philly
+West Philly,west-philly,"Known for its leafy streets, Victorian houses, and diverse cultural scene influenced heavily by its proximity to multiple universities.",west-philly
+Germantown,germantown,"One of the oldest settlements in Philadelphia, known for its rich history and colonial architecture.",germantown
+Passyunk Square,passyunk-square,"Famous for its avenue of eclectic food offerings, including some of the city's best-known cheesesteak joints.",passyunk-square
