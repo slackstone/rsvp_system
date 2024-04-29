@@ -1,5 +1,5 @@
 # RSVP System
-A Drupal module for managing calendars and space reservations.
+An Open Source Drupal module for managing calendars and reservations.
 
 This module provides a comprehensive system for creating and managing reservation requests, locations, and department categorizations. It includes the following entities and functionalities:
 
