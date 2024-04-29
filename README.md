@@ -1,15 +1,15 @@
 # RSVP System
 An Open Source Drupal module for managing calendars and reservations.
 
-This module provides a comprehensive system for creating and managing reservation requests, locations, and department categorizations. It includes the following entities and functionalities:
+This module provides documentation and example data to help stand up Reservation Systems. RSVP Requests, RSVP Locations, and RSVP Departments provide the functionalities:
 
 - **RSVP Department**: A taxonomy used to categorize locations. This taxonomy allows for efficient sorting and filtering of locations by department, leveraging Drupal's powerful taxonomy system for easy management and access.
 
 - **RSVP Location**: A content type designed for managing detailed information about reservable locations. This includes complex functionalities such as bookings, galleries, and additional location-specific data that facilitates efficient reservation management.
 
-- **Reservation Request**: A content type used for submitting reservation details. This dynamic entity includes fields for date, time, status (Pending, Approved, Declined, Canceled), user details, and links to specific RSVP Locations.
+- **RSVP Request**: A content type used for submitting reservation details. This dynamic entity includes fields for date, time, status (Pending, Approved, Declined, Canceled), user details, and links to specific RSVP Locations.
 
-- **Reservation Log**: A content type for logging all activities related to reservation requests. This includes recording outcomes like approvals, declines, and cancellations, serving as a historical record to maintain data integrity and provide insights into reservation trends and outcomes.
+- **RSVP Log**: A content type for logging all activities related to reservation requests. This includes recording outcomes like approvals, declines, and cancellations, serving as a historical record to maintain data integrity and provide insights into reservation trends and outcomes.
 
 ## Required Modules
 - **Content Access**: Secures locations by managing access permissions, ensuring that reservation data is protected and accessible only to authorized users. [Learn more](https://www.drupal.org/project/content_access).
