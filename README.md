@@ -1,9 +1,11 @@
 # RSVP System
-An Open Source Drupal module for managing calendars and reservations.
+An Open Source Drupal project focused on building advance reservation systems.
 
-This module provides documentation and example data to help stand up Reservation Systems. RSVP Requests, RSVP Locations, and RSVP Departments provide these functionalities:
+This project provides documentation and example data to help explain the build process.
 
-- **RSVP Department**: A taxonomy used to categorize locations. This taxonomy allows for efficient sorting and filtering of locations by department, leveraging Drupal's powerful taxonomy system for easy management and access.
+Functionalities:
+
+- **RSVP Department**: A taxonomy used to categorize locations. This taxonomy allows for sorting and filtering of locations by department.
 
 - **RSVP Location**: A content type designed for managing detailed information about reservable locations. This includes complex functionalities such as bookings, galleries, and additional location-specific data that facilitates efficient reservation management.
 
