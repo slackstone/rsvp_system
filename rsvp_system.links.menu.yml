@@ -1,6 +1,0 @@
-rsvp_system.admin_settings:
-  title: 'RSVP System Settings'
-  description: 'Configure RSVP System settings.'
-  parent: system.admin_config_system
-  route_name: rsvp_system.admin_settings
-  weight: 100

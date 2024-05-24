@@ -1,7 +1,0 @@
-rsvp_system.admin_settings:
-  path: '/admin/config/system/rsvp-system'
-  defaults:
-    _form: '\Drupal\rsvp_system\Form\RSVPConfigForm'
-    _title: 'RSVP System Settings'
-  requirements:
-    _permission: 'administer site configuration'
