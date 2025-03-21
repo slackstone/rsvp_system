@@ -1,7 +1,11 @@
 # Project Briefing: Taxonomy Discussion Points
 
 
----
+1.) Grouper versus Groups: Tools to group people into communities  
+2.) Custom Modules versus "Low Code" ECA (Events, Conditions, Actions) workflow models  
+3.) Taxonomy (vocabularies) to organize content within communities. (Breadcrumbs!)  
+4.) References and Proof of Concept Testing, AI Prompts  
+5.) Ideas & suggestions for a path forward  
 
 ## 1. Grouper vs. Groups: Tools to Group People into Communities
 
