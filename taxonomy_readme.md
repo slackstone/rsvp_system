@@ -85,7 +85,7 @@ Use taxonomy to help assign **content topic managers** and improve content disco
 ### Live Example:
 - **Taxonomy Schema for Affiliated Communities:**  
   https://pilot.whitinghamvt.org/Departments
-- **Contextual Taxonomy Filtering and URL Schema Patterns:**
+- **Contextual Taxonomy Filtering and URL Schema Patterns:**  
   https://demo.rsvp-system.org/about/university_city
 
 ### Background Research:
