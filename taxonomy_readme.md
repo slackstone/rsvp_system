@@ -100,11 +100,8 @@ Use taxonomy to help assign **content topic managers** and improve content disco
 
 ---
 
-## 5. AI Prompts & Discussion Examples
+## 5. Ideas & suggestions for a path forward  
 
-Example AI Prompt:
-
-> *“I am working with Drupal 10. I’m concerned that Group Roles are tied to a specialized module and may not be sustainable long-term. Thoughts?”*
 
 ### Disadvantages of the Group Module:
 - Added complexity
