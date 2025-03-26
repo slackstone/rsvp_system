@@ -3,9 +3,8 @@
 
 1.) Grouper versus Groups: Tools to group people into communities  
 2.) Custom Modules versus "Low Code" ECA (Events, Conditions, Actions) workflow models  
-3.) Taxonomy (vocabularies) to organize content within communities. (Breadcrumbs!)  
-4.) References and Proof of Concept Testing, AI Prompts  
-5.) Ideas & suggestions for a path forward  
+3.) Taxonomy (vocabularies) to organize content within communities. (Breadcrumbs)  
+
 
 ## 1. Grouper vs. Groups: Tools to Group People into Communities
 
@@ -84,7 +83,7 @@ Use taxonomy to help assign **content topic managers** and improve content disco
 
 ---
 
-## 4. References & Proof of Concept Testing
+References & Proof of Concept Testing
 
 ### Live Example:
 - **Taxonomy Schema for Affiliated Communities:**  
@@ -98,23 +97,17 @@ Use taxonomy to help assign **content topic managers** and improve content disco
 - Yale Law – Taxonomy Access Control  
   https://law.yale.edu/site-administration/taxonomy-access-control#tac
 
----
-
-## 5. Ideas & suggestions for a path forward  
-
-
 ### Disadvantages of the Group Module:
-- Added complexity
+- Added complexity (Groups Roles, Group Permissions)
 - Overlapping permissions with Drupal core roles
 - Extra module dependencies
 - Higher risk of misconfigured permissions
 - Not as widely adopted as Taxonomy or Role-based approaches
 
----
 
 ## Next Steps & Suggestions
 
-- Evaluate whether Grouper or Drupal Groups should be the primary method for user grouping  
+- Evaluate whether Grouper or the Drupal-contributed module "Groups" should be the primary method for user grouping user accounts.  
 - Use ECA as a first-line approach to manage workflows and access logic  
 - Leverage core Taxonomy to organize communities and content  
 - Review existing configurations for overlap and redundancy  
