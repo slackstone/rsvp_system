@@ -61,20 +61,45 @@ Drupal’s **Taxonomy** system provides a powerful way to organize content and p
 - Easily integrated with Views and ECA
 - Useful for filtering, breadcrumbs, and access control
 
-### Example URL Schema with Breadcrumb Support:
+# Taxonomy Overview
 
-```
-/{community_type}/{community_name}/{resource_type}/{resource_name}
+The **"Community"** taxonomy is the key organizational structure that ties the system together. Both **Content** and **User Accounts** are assigned to Communities to establish contextual relationships.
 
-/house/edmunds/rooms/study_101  
-/central/technology/equipment/mac_laptop_6251  
-```
+---
 
-### Views Filtering with Taxonomy Context:
+## Content Taxonomies
 
-```
-/{view_machine_name}/[[Context Filter: {community_shortname}]]
-```
+- **Amenities**: Available features or services associated with a Resource.  
+- **Community**: Defines major groupings within the website (e.g., departments, neighborhoods, programs).  
+- **Community Attribute**: Adds metadata or qualifiers to items within the **Community** taxonomy.  
+- **Community Type**: A classification reference used by the **Community** taxonomy (examples: department, adjunct department, neighborhood, program, business).  
+- **Subscription List**: Represents mailing lists with designated senders and subscribers.  
+- **Media Directory**: Organizes content into a directory structure.  
+- **Resource**: An item managed within a Community (e.g., rooms, equipment).  
+- **Resource Type**: Categorizes Community Resources (e.g., classroom, vehicle, lab).  
+- **Status**: Represents the current state or condition of an item (e.g., available, reserved, archived).
+
+---
+
+## User Taxonomies and Roles
+
+- **Primary Community**: A taxonomy reference field on user accounts that assigns a default Community context for personalization and filtering.  
+- **Community Position**: A manually managed taxonomy field maintained by professional staff to provide role-based context for directory displays and access control.
+
+---
+
+## Path Auto: Taxonomy-Based URL Patterns
+
+- `/[community_type_shortname]/[community_shortname]/`  
+  Used for creating structured URLs based on taxonomy values.
+
+### Views Filtering with Taxonomy Contexts
+
+- `/house/calendar/([%community_shortname])`  
+- `/house/rooms/([%community_shortname])`  
+- `/house/people/([%primary_community])`
+
+These patterns support dynamic filtering in Views based on taxonomy context.
 
 **Live Example:**  
 https://pilot.whitinghamvt.org/Departments
