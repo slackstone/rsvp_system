@@ -72,8 +72,7 @@ The **"Community"** taxonomy is the key organizational structure that ties the s
 - **Amenities**: Available features or services associated with a Resource.  
 - **Community**: Defines major groupings within the website (e.g., departments, neighborhoods, programs).  
 - **Community Attribute**: Adds metadata or qualifiers to items within the **Community** taxonomy.  
-- **Community Type**: A classification reference used by the **Community** taxonomy (examples: department, adjunct department, neighborhood, program, business).  
-- **Subscription List**: Represents mailing lists with designated senders and subscribers.  
+- **Community Type**: A classification reference used by the **Community** taxonomy (examples: department, adjunct department, neighborhood, program, business).    
 - **Media Directory**: Organizes content into a directory structure.  
 - **Resource**: An item managed within a Community (e.g., rooms, equipment).  
 - **Resource Type**: Categorizes Community Resources (e.g., classroom, vehicle, lab).  
@@ -85,7 +84,7 @@ The **"Community"** taxonomy is the key organizational structure that ties the s
 
 - **Primary Community**: A taxonomy reference field on user accounts that assigns a default Community context for personalization and filtering.  
 - **Community Position**: A manually managed taxonomy field maintained by professional staff to provide role-based context for directory displays and access control.
-
+- **Subscription List**: Represents mailing lists with designated senders and subscribers.
 ---
 
 ## Path Auto: Taxonomy-Based URL Patterns
