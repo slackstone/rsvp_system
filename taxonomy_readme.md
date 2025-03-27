@@ -1,7 +1,7 @@
-# Project Briefing: Taxonomy Discussion Points
+# Taxonomy Discussion Document
 
 
-1.) Grouper versus Groups: Tools to group people into communities  
+1.) Grouper versus Groups: Tools to group people into communities (taxonomy) 
 2.) Custom Modules versus "Low Code" ECA (Events, Conditions, Actions) workflow models  
 3.) Taxonomy (vocabularies) to organize content within communities. 
 
